@@ -1,2 +1,4 @@
 # key-splitting-thesis-doc
-doc for my MSc thesis
+
+Doc for my MSc thesis
+Template: https://github.com/fwalch/tum-thesis-latex
