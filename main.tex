@@ -16,8 +16,6 @@
 %   components/quote.tex            contains a quote.
 %   components/abstract.tex         contains the abstract of the document.
 %   components/text.tex             includes the actual content of the document.
-%   components/outline.tex          contains the outline.
-%   components/preface.tex          contains the preface.
 %   chapters/                       contains the main text.
 %   bibliography/literature.bib     contains the BibTeX entries.
 %   images/                         contains all your content-related images.
@@ -36,7 +34,8 @@
               headsepline,
               footsepline,
               BCOR=12mm,
-              DIV=13]{scrbook}
+              DIV=13,
+              bibliography=totoc]{scrbook}
 
 % KOMA scrbook options:
 %  index=totoc: include an entry for the index in the table of contents.
@@ -46,11 +45,8 @@
 %  DIV: Number of sheet sections (used for layout) (e.g.: DIV=13)
 
 \input{components/info}
-
 \input{components/settings}
-
 \input{components/commands}
-
 \input{components/glossary}
 
 \makeglossary
@@ -60,29 +56,21 @@
  \frontmatter
 
  \input{components/cover}
-
  \clearemptydoublepage
-
  \input{components/titlepage}
-
  \input{components/disclaimer}
-
  \input{components/acknowledgements}
-
  \input{components/quote}
-
  \input{components/abstract}
 
  \tableofcontents
 
  \mainmatter
-
  \input{components/text}
+
 
  \clearemptydoublepage
  \printglossaries
- \phantomsection
- \addcontentsline{toc}{chapter}{Bibliography}
  \bibliography{bibliography/literature}
 
 \end{document}
