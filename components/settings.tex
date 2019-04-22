@@ -12,7 +12,7 @@
 % \usepackage{pifont}
 
 % Manipulate the footer
-\usepackage{scrpage2}
+\usepackage{scrlayer-scrpage}
 \usepackage{scrhack}
 \pagestyle{scrheadings}
 \ifoot[\footertext]{\footertext} % \footertext set in INFO.TEX
@@ -33,12 +33,6 @@
 %--------------------------------------------------
 % Document structure
 %--------------------------------------------------
-
-
-% Create glossaries and lists of acronyms
-% depending on how many packages were shipped with your TeX distribution,
-% you might need to install xindy. On Linux: sudo apt install xindy
-\usepackage[toc, xindy]{glossaries}
 
 % Standard LaTeX package for creating indexes
 \usepackage{makeidx}

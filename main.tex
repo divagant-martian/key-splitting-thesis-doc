@@ -11,7 +11,6 @@
 %   components/info.tex             contains the author, title etc.
 %   components/settings.tex         contains the packages and settings.
 %   components/commands.tex         contains helpful custom commands.
-%   components/glossary.tex         contains an explanation of the used terms.
 %   components/acknowledgements.tex contains the acknowledgements.
 %   components/quote.tex            contains a quote.
 %   components/abstract.tex         contains the abstract of the document.
@@ -47,16 +46,15 @@
 \input{components/info}
 \input{components/settings}
 \input{components/commands}
-\input{components/glossary}
-
-\makeglossary
 
 \begin{document}
 
  \frontmatter
 
  \input{components/cover}
+
  \clearemptydoublepage
+
  \input{components/titlepage}
  \input{components/disclaimer}
  \input{components/acknowledgements}
@@ -68,9 +66,8 @@
  \mainmatter
  \input{components/text}
 
-
  \clearemptydoublepage
- \printglossaries
+
  \bibliography{bibliography/literature}
 
 \end{document}
