@@ -1,44 +1,110 @@
-\chapter{Preliminaries}
-\label{chapter:preliminaries}
+\chapter{Preliminaries
+  \label{chapter:preliminaries}}
 
-\section{Including Code}
+\comment{
+  Put down everything I think should be here. Order it, make subsections for each. Start filling the gaps.
+  Pags: 3- 17 min
+}
 
-An example of which of can be found below (see Source Code \ref{lst:nice_listing})
-Cool \LaTeX \cite{latex} citation?
-\begin{listing}
-    %the language syntax can be declared here.
-    \begin{minted}{python}
-    import numpy as np
+\section{Paradigm Shift}
+Paradigm Shift\cite{chakravarthy2009stream}\\ As a result, the amount of data to be
+processed can be unbounded or never ending. At the same time, these applications
+need processing capabilities for continuously computing and aggregating incoming
+data for identifying interesting changes or patterns in a timely manner.
 
-    def incmatrix(genl1,genl2):
-        m = len(genl1)
-        n = len(genl2)
-        M = None #to become the incidence matrix
-        VT = np.zeros((n*m,1), int)  #dummy variable
+These applications are different from traditional DBMS applications with respect
+to data arrival rates, update frequency, processing requirements, Quality of
+Service (QoS) needs, and notification support
 
-        #compute the bitwise xor matrix
-        M1 = bitxormatrix(genl1)
-        M2 = np.triu(bitxormatrix(genl2),1)
+Queries that are processed by a traditional DBMS are termed ad hoc queries. They
+are (typically) specified, optimized, and evaluated once over a snapshot of a
+database. In contrast, queries in a stream processing environment are termed
+continuous queries
 
-        for i in range(m-1):
-            for j in range(i+1, m):
-                [r,c] = np.where(M2 == M1[i,j])
-                for k in range(len(r)):
-                    VT[(i)*n + r[k]] = 1;
-                    VT[(i)*n + c[k]] = 1;
-                    VT[(j)*n + r[k]] = 1;
-                    VT[(j)*n + c[k]] = 1;
+In addition, the snapshot approach for evaluating stream data may not always be
+appropriate as the values over an interval are important (e.g., temperature
+changes) for stream processing applications. Furthermore, the inability to
+specify quality of service requirements (such as latency or response time) to a
+DBMS makes its usage less acceptable for stream applications.
 
-                    if M is None:
-                        M = np.copy(VT)
-                    else:
-                        M = np.concatenate((M, VT), 1)
+DBMSs were not designed to manage high-frequency updates (in the form of data
+streams) and to provide continuous computation and output for queries.
 
-                    VT = np.zeros((n*m,1), int)
+Applications\cite{chakravarthy2009stream}\\ i) to monitor traffic slowdown or
+accidents using data sent by each car on the road every few seconds or minutes,
+(ii) to perform program trading based on changes in the stock price of a
+particular stock relative to other stock prices using data from multiple feeds,
+and (iii) to monitor environmental and security applications for water
+quality, fire spread, etc. based on data received from sensors
 
-        return M
-    \end{minted}
+Data Stream Characteristics\cite{chakravarthy2009stream}\\
 
-  \caption{My nice listing}
-  \label{lst:nice_listing}
-\end{listing}
+
+Data Stream Application Characteristics\cite{chakravarthy2009stream}\\
+
+
+Continuous Queries\cite{chakravarthy2009stream}\\
+
+
+Window Specification\cite{chakravarthy2009stream}\\
+
+
+QoS Metrics\cite{chakravarthy2009stream}\\
+
+
+Data Stream Management System Architecture\cite{chakravarthy2009stream}\\
+
+
+QoS-Related Challenges\cite{chakravarthy2009stream}\\
+
+
+Capacity Planning and QoS Verification\cite{chakravarthy2009stream}\\
+
+
+Scheduling Strategies for CQs\cite{chakravarthy2009stream}\\
+
+
+Load Shedding and Run-Time Optimization\cite{chakravarthy2009stream}\\
+
+
+Complex Event and Rule Processing\cite{chakravarthy2009stream}\\
+
+
+Design and Implementation of a DSMS with CEP\cite{chakravarthy2009stream}\\
+
+
+Stream Processing Model\cite{kamburugamuve2013survey}\\
+
+
+Physical Distribution of PEs\cite{kamburugamuve2013survey}\\
+
+
+Stream Processing Engine Requirements\cite{kamburugamuve2013survey}\\
+
+
+Fault Tolerance\cite{kamburugamuve2013survey}\\
+
+
+GAP Recovery\cite{kamburugamuve2013survey}\\
+
+
+Rollback Recovery\cite{kamburugamuve2013survey}\\
+
+
+Upstream Backup\cite{kamburugamuve2013survey}\\
+
+
+Precise Recovery\cite{kamburugamuve2013survey}\\
+
+
+
+Operator Graphs\cite{schneider2013tutorial}\\
+
+
+State in Operators\cite{schneider2013tutorial}\\
+
+
+Flavors of Parallelism\cite{schneider2013tutorial}\\
+
+
+Safety and Profitability\cite{schneider2013tutorial}\\
