@@ -1,14 +1,98 @@
+% !TEX root = ../main.tex
 \chapter{Preliminaries
   \label{chapter:preliminaries}}
 
-\comment{
-  Put down everything I think should be here. Order it, make subsections for each. Start filling the gaps.
-  Pags: 3- 17 min
-}
+  Components:
+  \cite{chakravarthy2009stream}
+    Paradigm Shift
+    Data Stream Applications
+    Data Stream Management System Architecture
+  Load Shedding and Run-Time Optimization
 
-\section{Paradigm Shift}
-What is a stream in the world
-\section{Stream Modeling}
+
+  \cite{KottoKombi2015ParallelAD}
+    Data Stream definition (formal)
+    Window
+    Stateful and stateless operators
+    Workflow
+
+  \cite{kamburugamuve2013survey}
+    Stream Sources
+    Stream
+    DAG
+    Operator
+    Physical distribution of operators (Physical plan)
+    Data Stream Engine requirements
+
+    Most common Engines
+Storm
+
+  \cite{R_ger_2019}
+  General system model
+  Parallel Data Stream Processing Engines classification
+Properties of Parallel DSPS
+Operator parallelization methods
+Operator Elasticity methods
+Storm
+Heron
+Spark
+Flink
+Parallelization and Elasticity methods
+- Task parallelization
+- Shuffle grouping
+- Key partitioning functions
+- Key-based splitting: State Management and Algorithms
+[118]Rivetti et al.
+Zacheilas et al. [153]
+26], Cherniack et al
+
+Centralized vs distributed elasticity solutions (spring relaxation problem)
+
+  \cite{Schneider_2013}
+Operator Graphs
+State in Operators
+Safety and Profitability
+Load Balancing
+State management
+Open Research Problems
+Programming Model Challenges
+
+  \cite{Hirzel_2014}
+Load Balancing
+  Reasons
+
+
+
+ \comment{What is Stream processing}
+  In the recent years, the volume of data generated in different domains has
+  grown in a way that it is impossible to store and process it.\\\\
+
+  Stream processing was born as a solution to this problem, allowing to process
+  data incrementally without having access to all of it.\\\\
+
+  Instead of considering data as an static entity. Stream processing works over
+  sequences or streams of data and defines basic functions that operate over a
+  single element of one or more streams. At the same time, a function may
+  generate a new stream with its output and this stream can be fed into other
+
+
+  functions. In this way is possible to do sophisticated computations in a distributed and performant manner.\\\\
+
+  \comment{Why/What for is Stream Processing Useful}
+
+
+  Stream processing is naturally suited for real time or near real time applications. Given its capacity to operate over partial information and produce results continuously.\\\\
+
+  \comment{Examples of Stream Processing in IOT}
+
+  \comment{Frameworks}
+    Cuales son algunos frameworks/librerias\\\\
+    Apache Flink
+    Apache Storm asdas
+
+In the rest of this section we introduce some core concepts and techniques related to stream processing. The experienced reader can omit these explanations.
+
+  \section{Stream Modeling}
 DAGS, unbounded tables
 \section{General architecture of a DSPS}
 \subsection{Logical Plan}
@@ -16,112 +100,9 @@ DAGS, unbounded tables
 \section{Load Balancing Optimizations}
 \subsection{Substream spliting}
 \subsubsection{Key spliting}
-\subsubsubsection{Power of W choices}
-\subsubsubsection{Hashing}
-\subsubsubsection{The others}
+\subsubsection{Power of W choices}
+\subsubsection{Hashing}
+\subsubsection{The others}
 \subsubsection{Windw spliting (and others?)}
 \section{Other optimizations}
-
-
-\section{Paradigm Shift}
-Paradigm Shift\cite{chakravarthy2009stream}\\ As a result, the amount of data to be
-processed can be unbounded or never ending. At the same time, these applications
-need processing capabilities for continuously computing and aggregating incoming
-data for identifying interesting changes or patterns in a timely manner.
-
-These applications are different from traditional DBMS applications with respect
-to data arrival rates, update frequency, processing requirements, Quality of
-Service (QoS) needs, and notification support
-
-Queries that are processed by a traditional DBMS are termed ad hoc queries. They
-are (typically) specified, optimized, and evaluated once over a snapshot of a
-database. In contrast, queries in a stream processing environment are termed
-continuous queries
-
-In addition, the snapshot approach for evaluating stream data may not always be
-appropriate as the values over an interval are important (e.g., temperature
-changes) for stream processing applications. Furthermore, the inability to
-specify quality of service requirements (such as latency or response time) to a
-DBMS makes its usage less acceptable for stream applications.
-
-DBMSs were not designed to manage high-frequency updates (in the form of data
-streams) and to provide continuous computation and output for queries.
-
-Applications\cite{chakravarthy2009stream}\\ i) to monitor traffic slowdown or
-accidents using data sent by each car on the road every few seconds or minutes,
-(ii) to perform program trading based on changes in the stock price of a
-particular stock relative to other stock prices using data from multiple feeds,
-and (iii) to monitor environmental and security applications for water
-quality, fire spread, etc. based on data received from sensors
-
-Data Stream Characteristics\cite{chakravarthy2009stream}\\
-
-
-Data Stream Application Characteristics\cite{chakravarthy2009stream}\\
-
-
-Continuous Queries\cite{chakravarthy2009stream}\\
-
-
-Window Specification\cite{chakravarthy2009stream}\\
-
-
-QoS Metrics\cite{chakravarthy2009stream}\\
-
-
-Data Stream Management System Architecture\cite{chakravarthy2009stream}\\
-
-
-QoS-Related Challenges\cite{chakravarthy2009stream}\\
-
-
-Capacity Planning and QoS Verification\cite{chakravarthy2009stream}\\
-
-
-Scheduling Strategies for CQs\cite{chakravarthy2009stream}\\
-
-
-Load Shedding and Run-Time Optimization\cite{chakravarthy2009stream}\\
-
-
-Complex Event and Rule Processing\cite{chakravarthy2009stream}\\
-
-
-Design and Implementation of a DSMS with CEP\cite{chakravarthy2009stream}\\
-
-
-Stream Processing Model\cite{kamburugamuve2013survey}\\
-
-
-Physical Distribution of PEs\cite{kamburugamuve2013survey}\\
-
-
-Stream Processing Engine Requirements\cite{kamburugamuve2013survey}\\
-
-
-Fault Tolerance\cite{kamburugamuve2013survey}\\
-
-
-GAP Recovery\cite{kamburugamuve2013survey}\\
-
-
-Rollback Recovery\cite{kamburugamuve2013survey}\\
-
-
-Upstream Backup\cite{kamburugamuve2013survey}\\
-
-
-Precise Recovery\cite{kamburugamuve2013survey}\\
-
-
-
-Operator Graphs\cite{schneider2013tutorial}\\
-
-
-State in Operators\cite{schneider2013tutorial}\\
-
-
-Flavors of Parallelism\cite{schneider2013tutorial}\\
-
-
-Safety and Profitability\cite{schneider2013tutorial}\\
+\section{Shift}
