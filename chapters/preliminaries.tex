@@ -2,107 +2,116 @@
 \chapter{Preliminaries
   \label{chapter:preliminaries}}
 
-  Components:
-  \cite{chakravarthy2009stream}
-    Paradigm Shift
-    Data Stream Applications
-    Data Stream Management System Architecture
-  Load Shedding and Run-Time Optimization
+% Why does it matter
+  Paradigm Shift\cite{chakravarthy2009stream}
+
+% Stream Sources
+  Stream Sources  \cite{kamburugamuve2013survey}
+
+% Data Stream Applications
+  Data Stream Applications\cite{chakravarthy2009stream}
+
+% Common Data Stream Management Systems
+  Most common Engines  \cite{kamburugamuve2013survey}
+  - Storm  \cite{kamburugamuve2013survey}\\
+  - Storm \cite{R_ger_2019}\\
+  - Heron \cite{R_ger_2019}\\
+  - Spark \cite{R_ger_2019}\\
+  - Flink \cite{R_ger_2019}
+
+  \section{Data Stream Modeling}
+  % How to model it / Theory
+  Data Stream definition (formal) \cite{KottoKombi2015ParallelAD}
+
+  % General system model
+  General system model \cite{R_ger_2019}
+
+  % Stream
+  Stream  \cite{kamburugamuve2013survey}
+
+  % Operator
+  Operator  \cite{kamburugamuve2013survey}
+
+  % DAG
+  DAG  \cite{kamburugamuve2013survey}
+  Operator Graphs \cite{R_ger_2019}
+  Workflow  \cite{KottoKombi2015ParallelAD}
+
+  %% Stateful and stateless operators
+  Stateful and stateless operators  \cite{KottoKombi2015ParallelAD}
+
+  %% Physical distribution of operators (Physical plan)
+  Physical distribution of operators (Physical plan)  \cite{kamburugamuve2013survey}
+
+  Parallelization and Elasticity methods \cite{R_ger_2019}\\
+  - Task parallelization \cite{R_ger_2019}\\
+  - Shuffle grouping \cite{R_ger_2019}\\
+  - Key partitioning functions \cite{R_ger_2019}\\
+  - Key-based splitting: State Management and Algorithms \cite{R_ger_2019}\\
+  - Operator Elasticity methods \cite{R_ger_2019}
+  - Operator parallelization methods \cite{R_ger_2019}
+
+  % How to implement it
+  \section{Data Stream Processing Systems Architecture}
+  % Data Stream Management System Architecture
+  Data Stream Management System Architecture\cite{chakravarthy2009stream}
+  % Data Stream Engine requirements
+  Data Stream Engine requirements  \cite{kamburugamuve2013survey}
+  % Properties of Parallel DSPS
+  Properties of Parallel DSPS \cite{R_ger_2019}
+  % Parallel Data Stream Processing Engines classification
+  Parallel Data Stream Processing Engines classification \cite{R_ger_2019}
+  % Run-Time Optimization
+  Run-Time Optimization\cite{chakravarthy2009stream}
+
+  % Load Balancing in the context of elasticity and distribution
+  \section{Load Balancing in the context of elasticity and distribution}
+  % Problem description
+  Problem description: Load Balancing  \cite{Hirzel_2014},   Load Balancing \cite{R_ger_2019}
+
+  % State management considerations
+  State management (considerations): State in Operators \cite{R_ger_2019}. State management \cite{R_ger_2019}: Safety and Profitability \cite{Schneider_2013R_ger_2019}
+
+  % Load Balancing Optimizations
+  Load Balancing Optimizations
+
+  % Substream spliting
+  \subsection{Substream spliting}
+  % Key spliting
+  \subsubsection{Key spliting}
+  % Power of W choices
+  \paragraph{Power of W choices}
+  % Hashing
+  \paragraph{Hashing}
+  % The others
+  \paragraph{The others}
+  % Window  \cite{KottoKombi2015ParallelAD}
+  \paragraph{Windw spliting (and others?)}
+
+  Other optimizations
+
+  Conclusion: Open Research Problems \cite{Schneider_2013}
 
 
-  \cite{KottoKombi2015ParallelAD}
-    Data Stream definition (formal)
-    Window
-    Stateful and stateless operators
-    Workflow
+% What is Stream processing
+  % In the recent years, the volume of data generated in different domains has
+  % grown in a way that it is impossible to store and process it.\\\\
 
-  \cite{kamburugamuve2013survey}
-    Stream Sources
-    Stream
-    DAG
-    Operator
-    Physical distribution of operators (Physical plan)
-    Data Stream Engine requirements
+  % Stream processing was born as a solution to this problem, allowing to process
+  % data incrementally without having access to all of it.\\\\
 
-    Most common Engines
-Storm
-
-  \cite{R_ger_2019}
-  General system model
-  Parallel Data Stream Processing Engines classification
-Properties of Parallel DSPS
-Operator parallelization methods
-Operator Elasticity methods
-Storm
-Heron
-Spark
-Flink
-Parallelization and Elasticity methods
-- Task parallelization
-- Shuffle grouping
-- Key partitioning functions
-- Key-based splitting: State Management and Algorithms
-[118]Rivetti et al.
-Zacheilas et al. [153]
-26], Cherniack et al
-
-Centralized vs distributed elasticity solutions (spring relaxation problem)
-
-  \cite{Schneider_2013}
-Operator Graphs
-State in Operators
-Safety and Profitability
-Load Balancing
-State management
-Open Research Problems
-Programming Model Challenges
-
-  \cite{Hirzel_2014}
-Load Balancing
-  Reasons
+  % Instead of considering data as an static entity. Stream processing works over
+  % sequences or streams of data and defines basic functions that operate over a
+  % single element of one or more streams. At the same time, a function may
+  % generate a new stream with its output and this stream can be fed into other
 
 
-
- \comment{What is Stream processing}
-  In the recent years, the volume of data generated in different domains has
-  grown in a way that it is impossible to store and process it.\\\\
-
-  Stream processing was born as a solution to this problem, allowing to process
-  data incrementally without having access to all of it.\\\\
-
-  Instead of considering data as an static entity. Stream processing works over
-  sequences or streams of data and defines basic functions that operate over a
-  single element of one or more streams. At the same time, a function may
-  generate a new stream with its output and this stream can be fed into other
+  % functions. In this way is possible to do sophisticated computations in a distributed and performant manner.\\\\
 
 
-  functions. In this way is possible to do sophisticated computations in a distributed and performant manner.\\\\
-
-  \comment{Why/What for is Stream Processing Useful}
+% What for is Stream Processing Useful
 
 
-  Stream processing is naturally suited for real time or near real time applications. Given its capacity to operate over partial information and produce results continuously.\\\\
+  % Stream processing is naturally suited for real time or near real time applications. Given its capacity to operate over partial information and produce results continuously.\\\\
 
-  \comment{Examples of Stream Processing in IOT}
-
-  \comment{Frameworks}
-    Cuales son algunos frameworks/librerias\\\\
-    Apache Flink
-    Apache Storm asdas
-
-In the rest of this section we introduce some core concepts and techniques related to stream processing. The experienced reader can omit these explanations.
-
-  \section{Stream Modeling}
-DAGS, unbounded tables
-\section{General architecture of a DSPS}
-\subsection{Logical Plan}
-\subsection{Physical Plan}
-\section{Load Balancing Optimizations}
-\subsection{Substream spliting}
-\subsubsection{Key spliting}
-\subsubsection{Power of W choices}
-\subsubsection{Hashing}
-\subsubsection{The others}
-\subsubsection{Windw spliting (and others?)}
-\section{Other optimizations}
-\section{Shift}
+% In the rest of this section we introduce some core concepts and techniques related to stream processing. The experienced reader can omit these explanations.
