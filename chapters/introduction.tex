@@ -1,3 +1,28 @@
 % !TEX root = ../main.tex
 \chapter{Introduction}
 \label{chapter:introduction}
+
+(1)
+Explicar las características de los datos hoy en día. (las Vs de Big Data).
+Dar ejemplos de aplicaciones que tengan este paradigma de datos nuevo.
+
+(2)
+Explicar que en general necesitamos repensar cómo se procesan y almacenan esos datos. Acá simplemente es decir que por ejemplo antes las operaciones eran perfectamente conocidas, y la estructura de los datos también, y explicar cómo el paradigma usual no está preparado para eso
+
+(3)
+Explicar ya de forma tecnológica (esquema de almacenamiento, procesamiento, métricas de QoS) cómo batch processing y RDBS no sirven respecto a las Vs. Dar ejemplo concretos de apicaciones que evolucionaron en esa dirección
+
+(4)
+Explicar cómo streaming resuelve esos problemas, y cómo funciona muy por encima. Explicar las diferencias (sobre todo en QoS) entre el paradigma tradicional y este.
+
+(5)
+Explicar qué es elasticidad y qué es distribución. Explicar por encima cómo a veces se puede optar por hacer que un "worker" trabaje con un subset de datos y otro worker con otro (hablar de data parallelism)
+
+(6)
+decir ¿qué pasa cuando, por la forma de dividir los datos un worker tiene demasiada más carga que otro? Explicar que acá es donde entran los algoritmos de división de datos teniendo en cuenta ciertas restricciones. Decir que estas restricciones no obedecen solo a QoS sino a la arquitectura y garantías del sistema mismo.
+
+(7)
+Decir que algoritmos tradicionales fueron creados con ciertos objetivos en mente, obviando cosas como X, Y, Z. Decir: "esta tesis propone un algoritmo que logra bla bla bla"
+
+(8)
+explicación de en que consiste el documento y la tesis como tal
