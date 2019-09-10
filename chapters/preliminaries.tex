@@ -2,29 +2,31 @@
 \chapter{Preliminaries
   \label{chapter:preliminaries}}
 
+  This section is a primer on these aspects of JavaScript functions. If you already know your way around these concepts, feel free to skip to the next sectio
+
   \section{Data Stream Modeling}
-  How to model it / Theory
-  Data Stream definition (formal) \cite{KottoKombi2015ParallelAD} \cite{kamburugamuve2013survey}\cite{R_ger_2019}
-  Decir qué son tuplas, qué es stream
+
+  % Streams
+  Decir qué son streams. Decir que se modelan como tuplas de tamaño variable. \cite{kamburugamuve2013survey} Decir que en algunos casos se supone cierta estructura y se considern tablas no acotadas.\cite{KottoKombi2015ParallelAD}
 
   % Operator
-  Operator  \cite{kamburugamuve2013survey}
-  Decir qué es un operador y con qué otros nombres se les conoce. Dar ejemplos de qué es un operador
+  Decir que estos streams son procesados por unidades funcionales llamadas operadores. Decir que estas unidades son lógicas y section les conoce también como Elementos de procesamiento \cite{kamburugamuve2013survey} Dar ejemplos de qué es un operador, y decir que se hace una distinción importante entre si un operador maneja o no maneja estado. Mostrar ejemplos de un operador con estado y uno sin estado.
+  \cite{KottoKombi2015ParallelAD}
 
   % General system model
-  General system model
-
+  La definición lógica del flujo de streams a través de los operadores se modela como un DAG. Este DAG incluye las fuentes y los sinks. Dar un ejemplo dibujado de un DAG y decir que el sistema puede emitir o no emitir tuplas en respuesta a un stram entrante.
   % DAG
-  DAG  \cite{kamburugamuve2013survey}
-  Operator Graphs \cite{R_ger_2019}
-  Workflow  \cite{KottoKombi2015ParallelAD}
+  % DAG  \cite{kamburugamuve2013survey}
+  % Operator Graphs \cite{R_ger_2019}
+  % Workflow  \cite{KottoKombi2015ParallelAD}
 
-  %% Stateful and stateless operators
-  Stateful and stateless operators  \cite{KottoKombi2015ParallelAD}
-  Dar ejemplos de cuándo es necesario tener estado
+  Explicar primero qué es distribución. Explicar que este DAG solo representa de forma lógica el flujo de datos. Hablar del plan físico y explicar cómo se mapea el plan lógico al físico. Explicar qué es paralelismo y cómo se ve el plan físico a la luz del paralelismo. Incluir un dibujito.
+  \cite{kamburugamuve2013survey}
 
-  %% Physical distribution of operators (Physical plan)
-  Physical distribution of operators (Physical plan)  \cite{kamburugamuve2013survey}
+  Decir que el paralelismo, en conjunto con la distribución ponen sobre la mesa características interesante de los sistemas de procesamientos de datos, o hacen que determinadas decisiones del modelo afecten sus capacidades de paralelismo. Explicar cuáles son estas caracterísicas: Type of SP System, Programming Model, Sub-Stream Processing, Modeo de insfraestructura, Manejo de estado en operadores. \cite{R_ger_2019} Decir por qué en cada clasificación se escogió el modelo que se escogió para trabajar bajo las garantías del sistema.
+
+  Explicar que el paralelismo se puede evidenciar en dos modos a grandes rasgos: paralelismo de tareas o de datos. Explicar brevemente paralelismo de tareas y entrar en detalle en paralelismo de datos
+  Explicar qué es elasticidad
 
   Parallelization and Elasticity methods \cite{R_ger_2019}\\
   - Task parallelization \cite{R_ger_2019}\\
@@ -34,38 +36,15 @@
   - Operator Elasticity methods \cite{R_ger_2019}
   - Operator parallelization methods \cite{R_ger_2019}
 
-  \section{Data Stream Processing Systems Architecture}
-  How to implement it
-  Data Stream Management System Architecture\cite{chakravarthy2009stream}
+  % Parallel Data Stream Processing Engines classification \cite{R_ger_2019}
 
-  Data Stream Engine requirements  \cite{kamburugamuve2013survey}
-
-  Properties of Parallel DSPS \cite{R_ger_2019}
-
-  Parallel Data Stream Processing Engines classification \cite{R_ger_2019}
-
-  Run-Time Optimization\cite{chakravarthy2009stream}
-
+  \section{QoS Metrics}
+  QoS-Related Challenges\cite{chakravarthy2009stream}
   \section{Load Balancing in the context of elasticity and distribution}
 
   Problem description: Load Balancing  \cite{Hirzel_2014},   Load Balancing \cite{R_ger_2019}
 
-  State management (considerations): State in Operators \cite{R_ger_2019}. State management \cite{R_ger_2019}: Safety and Profitability \cite{Schneider_2013R_ger_2019}
-
-  Load Balancing Optimizations
-
-  \subsection{Substream spliting}
-
-  \subsubsection{Key spliting}
-
-  \paragraph{Power of W choices}
-
-  \paragraph{Hashing}
-
-  \paragraph{The others}
-
-  % Window  \cite{KottoKombi2015ParallelAD}
-  \paragraph{Windw spliting (and others?)}
+  State management (considerations): State in Operators \cite{R_ger_2019}. State management \cite{R_ger_2019}: Safety and Profitability \cite{Schneider_2013}\cite{R_ger_2019}
 
   Other optimizations
 
