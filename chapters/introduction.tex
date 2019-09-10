@@ -5,6 +5,15 @@
 (1) \cite{laney20013d}   Stream Sources  \cite{kamburugamuve2013survey}
 Explicar las características de los datos hoy en día. (las Vs de Big Data).
 Dar ejemplos de aplicaciones que tengan este paradigma de datos nuevo. Data Stream Applications\cite{chakravarthy2009stream}
+  In the recent years, the volume of data generated in different domains has
+  grown in a way that it is impossible to store and process it.
+  Stream processing was born as a solution to this problem, allowing to process
+  data incrementally without having access to all of it.
+  Instead of considering data as an static entity. Stream processing works over
+  sequences or streams of data and defines basic functions that operate over a
+  single element of one or more streams. At the same time, a function may
+  generate a new stream with its output and this stream can be fed into other
+  functions. In this way is possible to do sophisticated computations in a distributed and performant manner.
 
 (2)
 Explicar que en general necesitamos repensar cómo se procesan y almacenan esos datos. Acá simplemente es decir que por ejemplo antes las operaciones eran perfectamente conocidas, y la estructura de los datos también, y explicar cómo el paradigma usual no está preparado para eso
@@ -14,6 +23,7 @@ Explicar ya de forma tecnológica (esquema de almacenamiento, procesamiento, mé
 
 (4)
 Explicar cómo streaming resuelve esos problemas, y cómo funciona muy por encima. Explicar las diferencias (sobre todo en QoS) entre el paradigma tradicional y este.
+  Stream processing is naturally suited for real time or near real time applications. Given its capacity to operate over partial information and produce results continuously.
 
 (5)
 Explicar qué es elasticidad y qué es distribución. Explicar por encima cómo a veces se puede optar por hacer que un "worker" trabaje con un subset de datos y otro worker con otro (hablar de data parallelism)
