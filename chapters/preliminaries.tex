@@ -20,16 +20,18 @@
   data type and  content of each attribute. $\tau$ is the timestamp of each
   data point.
 
-  % Operator
+  \subsection{Operators}
+
   Streams are processed by functional units commonly known as operators or
   processing elements. Typical examples of operators include one-to-one
-  mappings, filters and joins. Operator are classified as stateless or stateful.
+  mappings, filters and joins. Operator are classified as stateless or
+  stateful.
 
   A stateless operator will process a tuple regardless of the previously seen
   items. Some examples are filters and simple one-to-one transformations,
   projections and constant functions. Stateless operators may produce a result
-  taking into account values of an attribute. In the classic word-count
-  example each item will produce the tuple $\langle seenword, 1\rangle$. The
+  taking into account values of an attribute. In the classic word-count example
+  each item will produce the tuple $\langle seenword, 1\rangle$. The
   fundamental property of such operators is their lack of knowledge of the
   composition of previous tuples or their results.
 
@@ -37,18 +39,16 @@
   tuples, or the results it has produced for each item or the block itself. In
   the word-count example the second stage stores for each word the accumulated
   count and updates the result with each new seen occurrence. In this scenario,
-  the stored information is an aggregated result. It is possible for
-  the operator to need the items itself. For example, the calculation of a moving median of the last $n$ data points.
+  the stored information is an aggregated result. It is possible for the
+  operator to need the items itself. For example, the calculation of a moving
+  median of the last $n$ data points.
 
-  in a Decir que estos streams son
-  procesados por unidades funcionales llamadas operadores. Decir que estas
-  unidades son lógicas y section les conoce también como Elementos de
-  procesamiento \cite{kamburugamuve2013survey} Dar ejemplos de qué es un
-  operador, y decir que se hace una distinción importante entre si un operador
-  maneja o no maneja estado. Mostrar ejemplos de un operador con estado y uno
-  sin estado.
-  \cite{KottoKombi2015ParallelAD}
+  \subsection{Directed Acyclic Graphs}
+  The way data flows from one operator to another is defined in an abstract manner using a directed acyclic graph DAG. A DAG includes not only the operators which transform data, but the sources and sinks as well. Sources produce data consumed by the system. Sinks are the final consumers of the process. The later are commonly web applications or storage systems.
 
+  % dibujito
+
+  This abstract definition
   % General system model
   La definición lógica del flujo de streams a través de los operadores se
   modela como un DAG. Este DAG incluye las fuentes y los sinks. Dar un ejemplo
