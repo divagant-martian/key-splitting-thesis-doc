@@ -2,30 +2,80 @@
 \chapter{Preliminaries
   \label{chapter:preliminaries}}
 
-  This section is a primer on stream processing. It covers the formalization of streams and related concepts, as well as the basics of the main characteristics that shape the general architecture of a Data Stream Processing System (DSPS). Subsequently, it provides an overview on the most common Quality of Service metrics, and how these are affected by architectural decisions, particularly regarding elasticity and distribution. It concludes with the definition of load balancing and the techniques used to handle this challenge, with a great emphasis on key splitting.
+  This section is a primer on stream processing. It covers the formalization of
+  streams and related concepts, as well as the basics of the main
+  characteristics that shape the general architecture of a Data Stream
+  Processing System (DSPS). Subsequently, it provides an overview on the most
+  common Quality of Service metrics, and how these are affected by
+  architectural decisions, particularly regarding elasticity and distribution.
+  It concludes with the definition of load balancing and the techniques used to
+  handle this challenge, with a great emphasis on key splitting.
 
   \section{Data Stream Modeling}
 
-  % Streams
-  Decir qué son streams. Decir que se modelan como tuplas de tamaño variable. \cite{kamburugamuve2013survey} Decir que en algunos casos se supone cierta estructura y se considern tablas no acotadas.\cite{KottoKombi2015ParallelAD}
+  A stream is defined as an unbound sequence of tuples $\langle
+  a_{\{i\}},\tau\rangle$. The $a_{\{i\}}$ are attributes of the tuple and may
+  be of variable length or of fixed width in a structured data context. In the
+  later, the $a_{\{i\}}$ would follow an schema $S$ which describe the expected
+  data type and  content of each attribute.
 
   % Operator
-  Decir que estos streams son procesados por unidades funcionales llamadas operadores. Decir que estas unidades son lógicas y section les conoce también como Elementos de procesamiento \cite{kamburugamuve2013survey} Dar ejemplos de qué es un operador, y decir que se hace una distinción importante entre si un operador maneja o no maneja estado. Mostrar ejemplos de un operador con estado y uno sin estado.
+  Streams are processed by functional units commonly known as operators or
+  processing elements. Main examples of operators include one-to-one mappings,
+  filters and joins. It is possible for an operator to require treating each
+  tuple in a stream as an individual item, or as part of a logical block. This
+  main difference divide operator in stateless and stateful operators.
+
+  A stateless operator will process a tuple regardless of the previously seen
+  items. Filters, simple one-to-one transformations are stateless operators may
+  produce a result taking into account values of an attribute and may as well
+  produce no result at all. Other examples include projections and constant
+  functions, as in the classic word-count example in which each item will
+  produce the tuple $\langle seenword, 1\rangle$. The fundamental property of
+  such operators is their lack of knowledge of the composition of previous
+  tuples or their results.
+
+  In contrast, a stateful operator will store the information of previous
+  tuples, or the results it has produced for each item or the block itself. In
+  the word-count example the second stage stores for each word the accumulated
+  count and updates the result with each new seen occurrence. In this scenario,
+  the stores information is an aggregated result, however it is possible to
+  need the items itself din a Decir que estos streams son procesados por
+  unidades funcionales llamadas operadores. Decir que estas unidades son
+  lógicas y section les conoce también como Elementos de procesamiento
+  \cite{kamburugamuve2013survey} Dar ejemplos de qué es un operador, y decir
+  que se hace una distinción importante entre si un operador maneja o no maneja
+  estado. Mostrar ejemplos de un operador con estado y uno sin estado.
   \cite{KottoKombi2015ParallelAD}
 
   % General system model
-  La definición lógica del flujo de streams a través de los operadores se modela como un DAG. Este DAG incluye las fuentes y los sinks. Dar un ejemplo dibujado de un DAG y decir que el sistema puede emitir o no emitir tuplas en respuesta a un stram entrante.
+  La definición lógica del flujo de streams a través de los operadores se
+  modela como un DAG. Este DAG incluye las fuentes y los sinks. Dar un ejemplo
+  dibujado de un DAG y decir que el sistema puede emitir o no emitir tuplas en
+  respuesta a un stram entrante.
   % DAG
   % DAG  \cite{kamburugamuve2013survey}
   % Operator Graphs \cite{R_ger_2019}
   % Workflow  \cite{KottoKombi2015ParallelAD}
 
-  Explicar primero qué es distribución. Explicar que este DAG solo representa de forma lógica el flujo de datos. Hablar del plan físico y explicar cómo se mapea el plan lógico al físico. Explicar qué es paralelismo y cómo se ve el plan físico a la luz del paralelismo. Incluir un dibujito.
+  Explicar primero qué es distribución. Explicar que este DAG solo representa
+  de forma lógica el flujo de datos. Hablar del plan físico y explicar cómo se
+  mapea el plan lógico al físico. Explicar qué es paralelismo y cómo se ve el
+  plan físico a la luz del paralelismo. Incluir un dibujito.
   \cite{kamburugamuve2013survey}
 
-  Decir que el paralelismo, en conjunto con la distribución ponen sobre la mesa características interesante de los sistemas de procesamientos de datos, o hacen que determinadas decisiones del modelo afecten sus capacidades de paralelismo. Explicar cuáles son estas caracterísicas: Type of SP System, Programming Model, Sub-Stream Processing, Modeo de insfraestructura, Manejo de estado en operadores. \cite{R_ger_2019} Decir por qué en cada clasificación se escogió el modelo que se escogió para trabajar bajo las garantías del sistema.
+  Decir que el paralelismo, en conjunto con la distribución ponen sobre la mesa
+  características interesante de los sistemas de procesamientos de datos, o
+  hacen que determinadas decisiones del modelo afecten sus capacidades de
+  paralelismo. Explicar cuáles son estas caracterísicas: Type of SP System,
+  Programming Model, Sub-Stream Processing, Modeo de insfraestructura, Manejo
+  de estado en operadores. \cite{R_ger_2019} Decir por qué en cada
+  clasificación se escogió el modelo que se escogió para trabajar bajo las
+  garantías del sistema.
 
-  Explicar que el paralelismo se puede evidenciar en dos modos a grandes rasgos: paralelismo de tareas o de datos. Explicar brevemente paralelismo de tareas y entrar en detalle en paralelismo de datos
+  Explicar que el paralelismo se puede evidenciar en dos modos a grandes
+  rasgos: paralelismo de tareas o de datos. Explicar brevemente paralelismo de
+  tareas y entrar en detalle en paralelismo de datos
   Explicar qué es elasticidad
 
   Parallelization and Elasticity methods \cite{R_ger_2019}\\
