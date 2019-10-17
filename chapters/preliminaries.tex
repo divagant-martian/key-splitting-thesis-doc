@@ -17,35 +17,36 @@
   a_{\{i\}},\tau\rangle$. The $a_{\{i\}}$ are attributes of the tuple and may
   be of variable length or of fixed width in a structured data context. In the
   later, the $a_{\{i\}}$ would follow an schema $S$ which describe the expected
-  data type and  content of each attribute.
+  data type and  content of each attribute. $\tau$ is the timestamp of each
+  data point.
 
   % Operator
   Streams are processed by functional units commonly known as operators or
-  processing elements. Main examples of operators include one-to-one mappings,
-  filters and joins. It is possible for an operator to require treating each
-  tuple in a stream as an individual item, or as part of a logical block. This
-  main difference divide operator in stateless and stateful operators.
+  processing elements. Typical examples of operators include one-to-one
+  mappings, filters and joins. Operator are classified as stateless or stateful.
 
   A stateless operator will process a tuple regardless of the previously seen
-  items. Filters, simple one-to-one transformations are stateless operators may
-  produce a result taking into account values of an attribute and may as well
-  produce no result at all. Other examples include projections and constant
-  functions, as in the classic word-count example in which each item will
-  produce the tuple $\langle seenword, 1\rangle$. The fundamental property of
-  such operators is their lack of knowledge of the composition of previous
-  tuples or their results.
+  items. Some examples are filters and simple one-to-one transformations,
+  projections and constant functions. Stateless operators may produce a result
+  taking into account values of an attribute. In the classic word-count
+  example each item will produce the tuple $\langle seenword, 1\rangle$. The
+  fundamental property of such operators is their lack of knowledge of the
+  composition of previous tuples or their results.
 
   In contrast, a stateful operator will store the information of previous
   tuples, or the results it has produced for each item or the block itself. In
   the word-count example the second stage stores for each word the accumulated
   count and updates the result with each new seen occurrence. In this scenario,
-  the stores information is an aggregated result, however it is possible to
-  need the items itself din a Decir que estos streams son procesados por
-  unidades funcionales llamadas operadores. Decir que estas unidades son
-  lógicas y section les conoce también como Elementos de procesamiento
-  \cite{kamburugamuve2013survey} Dar ejemplos de qué es un operador, y decir
-  que se hace una distinción importante entre si un operador maneja o no maneja
-  estado. Mostrar ejemplos de un operador con estado y uno sin estado.
+  the stored information is an aggregated result. It is possible for
+  the operator to need the items itself. For example, the calculation of a moving median of the last $n$ data points.
+
+  in a Decir que estos streams son
+  procesados por unidades funcionales llamadas operadores. Decir que estas
+  unidades son lógicas y section les conoce también como Elementos de
+  procesamiento \cite{kamburugamuve2013survey} Dar ejemplos de qué es un
+  operador, y decir que se hace una distinción importante entre si un operador
+  maneja o no maneja estado. Mostrar ejemplos de un operador con estado y uno
+  sin estado.
   \cite{KottoKombi2015ParallelAD}
 
   % General system model
