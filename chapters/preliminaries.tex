@@ -44,7 +44,13 @@
   median of the last $n$ data points.
 
   \subsection{Directed Acyclic Graphs}
-  The way data flows from one operator to another is defined in an abstract manner using a directed acyclic graph DAG. A DAG includes not only the operators which transform data, but the sources and sinks as well. Sources produce data consumed by the system. Sinks are the final consumers of the process. The later are commonly web applications or storage systems.
+  The way data flows from one operator to another is defined in an abstract
+  manner using a directed acyclic graph (DAG). The edges of the DAG represent
+  the streams, and nodes represent both the operators which transform data and
+  the sources and sinks as well. Sources are data producers such as sensors,
+  IoT devices and social media, whose data is consumed by the system. Sinks are
+  the final consumers of the process. The later are commonly web applications
+  or storage systems.
 
   % dibujito
 
