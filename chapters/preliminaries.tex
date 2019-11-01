@@ -52,24 +52,45 @@
   the final consumers of the process. The later are commonly web applications
   or storage systems.
 
-  % dibujito
+  \insertfigure{styles/images/dag.eps}{Abstract workflow}{fig:dag}{\figwidth}
 
-  This abstract definition
-  % General system model
-  La definición lógica del flujo de streams a través de los operadores se
-  modela como un DAG. Este DAG incluye las fuentes y los sinks. Dar un ejemplo
-  dibujado de un DAG y decir que el sistema puede emitir o no emitir tuplas en
-  respuesta a un stram entrante.
-  % DAG
-  % DAG  \cite{kamburugamuve2013survey}
-  % Operator Graphs \cite{R_ger_2019}
+  Given the task of counting the amount of hashtags a user has used,
+  \fref{fig:dag} is a possible DAG representing the work involved. $O1$ is the
+  source that continuously feeds tweets into the system. $O3$ transforms the
+  tweets removing the non-hashtag components of the tweet and generating
+  ordered pairs of user and hashtag appearing together. $O5$ groups the
+  resulting items in order to update the cumulated count. $O2$ and $O4$ might
+  be part of an unrelated task (for instance, counting the tweets of only
+  verified accounts). This is possible since a DAG may have several sinks.
+
+  A DAG is an abstract view of the data flow and general workflow. However the
+  actual implementation runs in a parallel, distributed system, where each
+  operator can be replicated across physical machines to obtain better
+  performance metrics.
+  % DAG  \cite{kamburugamuve2013survey} % Operator Graphs \cite{R_ger_2019}
   % Workflow  \cite{KottoKombi2015ParallelAD}
+  % General system model
 
-  Explicar primero qué es distribución. Explicar que este DAG solo representa
-  de forma lógica el flujo de datos. Hablar del plan físico y explicar cómo se
-  mapea el plan lógico al físico. Explicar qué es paralelismo y cómo se ve el
-  plan físico a la luz del paralelismo. Incluir un dibujito.
-  \cite{kamburugamuve2013survey}
+  \subsection{Physical Plan}
+  The introduction of distribution in stream processing allows operators to run
+  on different physical nodes. Data parallelism gives the opportunity of
+  processing more than one item simultaneously. Together they bring the concept
+  of sub-stream processing. \Fref{fig:physical-plan} show how the DAG described
+  by \fref{fig:dag} might be deployed in a parallel and distributed environment.
+
+  \insertfigure{styles/images/physical-plan.eps}{Physical
+  plan}{fig:physical-plan}{\figwidth}
+
+  In this example, $O3$ is a stateless operator. Therefor, the transformation can be performed on every item regardless of the operator instance receiving it. In contrast, $O5$ is a stateful operator and works in a way that data needs to be repartitioned depending on which instance has the information of the item's key. Note that such difference has consequences on the patterns for data transportation between instances. Data from $O1$ to $O3$ travels on a one-to-one way, and a repartitioning one from $O3$ to $O5$
+
+  The process through which \fref{fig:dag} becomes \fref{fig:physical-plan} includes a series of optimizations. It is possible to reorder, combine, divide and eliminate operators and still obtain the same desired results. \cite{Hirzel_2014} provides a comprehensive survey on these optimizations.
+
+  \subsection{Parallelization in Stream Processing}
+
+  Explicar que el paralelismo se puede evidenciar en dos modos a grandes
+  rasgos: paralelismo de tareas o de datos. Explicar brevemente paralelismo de
+  tareas y entrar en detalle en paralelismo de datos
+  Explicar qué es elasticidad
 
   Decir que el paralelismo, en conjunto con la distribución ponen sobre la mesa
   características interesante de los sistemas de procesamientos de datos, o
@@ -80,10 +101,6 @@
   clasificación se escogió el modelo que se escogió para trabajar bajo las
   garantías del sistema.
 
-  Explicar que el paralelismo se puede evidenciar en dos modos a grandes
-  rasgos: paralelismo de tareas o de datos. Explicar brevemente paralelismo de
-  tareas y entrar en detalle en paralelismo de datos
-  Explicar qué es elasticidad
 
   Parallelization and Elasticity methods \cite{R_ger_2019}\\
   - Task parallelization \cite{R_ger_2019}\\
