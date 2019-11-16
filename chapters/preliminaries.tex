@@ -81,9 +81,18 @@
   \insertfigure{styles/images/physical-plan.eps}{Physical
   plan}{fig:physical-plan}{\figwidth}
 
-  In this example, $O3$ is a stateless operator. Therefor, the transformation can be performed on every item regardless of the operator instance receiving it. In contrast, $O5$ is a stateful operator and works in a way that data needs to be repartitioned depending on which instance has the information of the item's key. Note that such difference has consequences on the patterns for data transportation between instances. Data from $O1$ to $O3$ travels on a one-to-one way, and a repartitioning one from $O3$ to $O5$
+  In this example, $O3$ is a stateless operator. Therefor, the transformation
+  can be performed on every item regardless of the operator instance receiving
+  it. In contrast, $O5$ is a stateful operator and works in a way that data
+  needs to be repartitioned depending on which instance has the information of
+  the item's key. Note that such difference has consequences on the patterns
+  for data transportation between instances. Data from $O1$ to $O3$ travels on
+  a one-to-one way, and a repartitioning one from $O3$ to $O5$
 
-  The process through which \fref{fig:dag} becomes \fref{fig:physical-plan} includes a series of optimizations. It is possible to reorder, combine, divide and eliminate operators and still obtain the same desired results. \cite{Hirzel_2014} provides a comprehensive survey on these optimizations.
+  The process through which \fref{fig:dag} becomes \fref{fig:physical-plan}
+  includes a series of optimizations. It is possible to reorder, combine,
+  divide and eliminate operators and still obtain the same desired results.
+  \cite{Hirzel_2014} provides a comprehensive survey on these optimizations.
 
   \subsection{Parallelization in Stream Processing}
 
