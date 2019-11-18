@@ -94,7 +94,36 @@
   divide and eliminate operators and still obtain the same desired results.
   \cite{Hirzel_2014} provides a comprehensive survey on these optimizations.
 
-  \subsection{Parallelization in Stream Processing}
+  \subsection{System characteristics}%?
+
+  Each Stream processing system has a set of guarantees and design decisions which affect the way the deployed version of a DAG is executed, and the way the system handles distinct scenarios.
+
+
+  \subsubsection{State Management}% TODO agregar referencias de los stateless y al survey en lo de externalización
+   A SPS may decide to allow the presence of stateful operators or restrict them to be stateless. Thies, Gordon, Rivetti and Schneider present systems allowing only stateless operators. Most popular engines opt for the mixed approach, using stateless and stateful operators as well. The state of an operator is usually internal to the instance. Alternatives include sharing state, for example with operators running in the same machine, as well as externalizing state. The last being the case when an operator's state is accessible to other components of the system via an API or a shared storage.
+%TODO cambiar lo de stateless a que en la literatura hay ejemplos pero no son muy usados porque limitan la expresividad de los casos de uso.
+
+   %TODO Cómo se manej el estado importa porque afecta las estrategias de recuperación ante fallas y
+
+  - manejo de estado
+  - tolerancia a fallas
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   Explicar que el paralelismo se puede evidenciar en dos modos a grandes
   rasgos: paralelismo de tareas o de datos. Explicar brevemente paralelismo de
